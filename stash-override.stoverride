@@ -1,12 +1,13 @@
-name: 'iKuuu｜我的分组｜方案1｜修正版'
+name: 'iKuuu｜我的分组｜最终修正版'
 desc: |-
-  只重组现有 Stash 配置中的节点和策略组。
-  不重新创建 iKuuu Provider，不复制任何节点，不接管订阅刷新。
-  节点继续由现有 iKuuu/Clash 订阅负责更新。
+  基于现有 Stash iKuuu 订阅重组策略组。
+  不复制节点，不重新创建订阅，继续使用现有 iKuuu Provider。
+  原始配置中的 Provider 名称已经核实为 iKuuu。
 proxy-groups: #!replace
   - name: 🔰 选择节点
     type: select
-    include-all: true
+    use:
+      - iKuuu
     proxies:
       - DIRECT
       - REJECT
