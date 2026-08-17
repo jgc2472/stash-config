@@ -1,9 +1,29 @@
-name: 'iKuuu｜我的分组｜每组独立选节点'
+name: 'iKuuu｜我的分组｜完整保留原组＋每组独立选节点'
 desc: |-
-  基于现有 Stash iKuuu Provider 重组策略组。
+  保留原 iKuuu 的节点选择与自动选择策略组。
+  新增 🔰 选择节点，并让每个业务组独立调用当前 iKuuu 全部节点。
   不复制节点，不重新创建订阅，不接管 iKuuu 刷新。
-  每个策略组：🔰选择节点在最前，随后是全部 iKuuu 节点，最后固定 DIRECT/REJECT。
 proxy-groups: #!replace
+  - name: 🚀 节点选择
+    type: select
+    include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: ♻️ 自动选择
+    type: url-test
+    use:
+      - iKuuu
+    filter: '^(?!.*(?:免费|下载专用)).+$'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 1800
+    timeout: 5
+    tolerance: 80
+    lazy: true
+    proxies:
+      - DIRECT
+      - REJECT
   - name: 🔰 选择节点
     type: select
     include-all: true
@@ -142,6 +162,8 @@ proxy-groups: #!replace
 rules: #!prepend
   - DOMAIN,smoot.apple.com,🍎 Apple AI
   - DOMAIN,guzzoni.apple.com,🍎 Apple AI
+  - DOMAIN,apple-relay.apple.com,🍎 Apple AI
+  - DOMAIN,apple-relay.cloudflare.com,🍎 Apple AI
   - DOMAIN-SUFFIX,appleintelligence.com,🍎 Apple AI
   - DOMAIN-SUFFIX,chatgpt.com,🤖 国外 AI
   - DOMAIN-SUFFIX,openai.com,🤖 国外 AI
@@ -155,6 +177,10 @@ rules: #!prepend
   - DOMAIN-SUFFIX,x.ai,🤖 国外 AI
   - DOMAIN-SUFFIX,telegram.org,📟 Telegram
   - DOMAIN-SUFFIX,t.me,📟 Telegram
+  - DOMAIN-SUFFIX,tdesktop.com,📟 Telegram
+  - DOMAIN-SUFFIX,telegra.ph,📟 Telegram
+  - DOMAIN-SUFFIX,telegram.me,📟 Telegram
+  - DOMAIN-SUFFIX,telesco.pe,📟 Telegram
   - DOMAIN-SUFFIX,x.com,𝕏 X
   - DOMAIN-SUFFIX,twitter.com,𝕏 X
   - DOMAIN-SUFFIX,facebook.com,Ⓜ️ Meta
