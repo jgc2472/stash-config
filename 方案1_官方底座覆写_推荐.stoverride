@@ -1,0 +1,168 @@
+name: 'iKuuu｜我的分组｜方案1｜官方底座覆写'
+desc: |-
+  保留现有 Stash 官方/订阅底座，只替换节点来源、策略组和规则。
+  iKuuu 节点来自远程 Provider，节点名称不写死。
+proxy-providers:
+  ikuuu_sub:
+    type: http
+    url: https://b0q22.no-mad-sub.one/link/a2mRozJqbj1QihVy?clash=3&extend=1
+    path: ./providers/ikuuu_sub.yaml
+    interval: 21600
+    filter: '^(?!(?:🔰 选择节点|🌏 爱奇艺&哔哩哔哩|📺 动画疯|🎮 Steam 登录/下载|🎮 Steam 商店/社区|🌩️ Cloudflare|☁️ OneDrive|🎓学术网站|🇨🇳 国内网站|🛑 拦截广告|🐟 漏网之鱼)$).+'
+    headers:
+      User-Agent: Stash
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+proxies: #!replace
+  []
+proxy-groups: #!replace
+  - name: 🔰 选择节点
+    type: select
+    use:
+      - ikuuu_sub
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: 🍎 Apple AI
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🤖 国外 AI
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🇬🇱 Google
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: ☁️ OneDrive
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 📟 Telegram
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 𝕏 X
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: Ⓜ️ Meta
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🎵 TikTok
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🎓学术网站
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🇨🇳 国内网站
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🌍 国外网站
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🛑 拦截广告
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🎮 Steam 登录/下载
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🎮 Steam 商店/社区
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+  - name: 🌩️ Cloudflare
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+rules: #!replace
+  - DOMAIN,smoot.apple.com,🍎 Apple AI
+  - DOMAIN,guzzoni.apple.com,🍎 Apple AI
+  - DOMAIN-SUFFIX,appleintelligence.com,🍎 Apple AI
+  - DOMAIN-SUFFIX,chatgpt.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,openai.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,oaistatic.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,oaiusercontent.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,claude.ai,🤖 国外 AI
+  - DOMAIN-SUFFIX,anthropic.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,gemini.google.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,copilot.microsoft.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,grok.com,🤖 国外 AI
+  - DOMAIN-SUFFIX,x.ai,🤖 国外 AI
+  - DOMAIN-SUFFIX,telegram.org,📟 Telegram
+  - DOMAIN-SUFFIX,t.me,📟 Telegram
+  - DOMAIN-SUFFIX,x.com,𝕏 X
+  - DOMAIN-SUFFIX,twitter.com,𝕏 X
+  - DOMAIN-SUFFIX,facebook.com,Ⓜ️ Meta
+  - DOMAIN-SUFFIX,instagram.com,Ⓜ️ Meta
+  - DOMAIN-SUFFIX,whatsapp.com,Ⓜ️ Meta
+  - DOMAIN-SUFFIX,tiktok.com,🎵 TikTok
+  - DOMAIN-SUFFIX,tiktokcdn.com,🎵 TikTok
+  - DOMAIN-SUFFIX,google.com,🇬🇱 Google
+  - DOMAIN-SUFFIX,googleapis.com,🇬🇱 Google
+  - DOMAIN-SUFFIX,gstatic.com,🇬🇱 Google
+  - DOMAIN-SUFFIX,scholar.google.com,🎓学术网站
+  - DOMAIN-SUFFIX,webofscience.com,🎓学术网站
+  - DOMAIN-SUFFIX,sciencedirect.com,🎓学术网站
+  - DOMAIN-SUFFIX,ieee.org,🎓学术网站
+  - DOMAIN-SUFFIX,nature.com,🎓学术网站
+  - DOMAIN-SUFFIX,springer.com,🎓学术网站
+  - DOMAIN-SUFFIX,onedrive.com,☁️ OneDrive
+  - DOMAIN-SUFFIX,onedrive.live.com,☁️ OneDrive
+  - DOMAIN-SUFFIX,sharepoint.com,☁️ OneDrive
+  - DOMAIN-SUFFIX,bilibili.com,🇨🇳 国内网站
+  - DOMAIN-SUFFIX,bilibili.tv,🇨🇳 国内网站
+  - DOMAIN-SUFFIX,iqiyi.com,🇨🇳 国内网站
+  - DOMAIN-SUFFIX,steamcommunity.com,🎮 Steam 商店/社区
+  - DOMAIN-SUFFIX,steampowered.com,🎮 Steam 商店/社区
+  - DOMAIN-SUFFIX,steamstatic.com,🎮 Steam 商店/社区
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamserver.net,🎮 Steam 登录/下载
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 漏网之鱼
