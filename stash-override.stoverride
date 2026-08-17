@@ -2,17 +2,19 @@ name: 'iKuuu｜我的分组｜每组独立选节点'
 desc: |-
   基于现有 Stash iKuuu Provider 重组策略组。
   不复制节点，不重新创建订阅，不接管 iKuuu 刷新。
-  每个策略组直接包含当前配置中的全部节点，并保留 DIRECT/REJECT。
+  每个策略组：🔰选择节点在最前，随后是全部 iKuuu 节点，最后固定 DIRECT/REJECT。
 proxy-groups: #!replace
   - name: 🔰 选择节点
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - DIRECT
       - REJECT
   - name: 🍎 Apple AI
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -20,6 +22,7 @@ proxy-groups: #!replace
   - name: 🤖 国外 AI
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -27,6 +30,7 @@ proxy-groups: #!replace
   - name: 🇬🇱 Google
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -34,6 +38,7 @@ proxy-groups: #!replace
   - name: ☁️ OneDrive
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -41,6 +46,7 @@ proxy-groups: #!replace
   - name: 📟 Telegram
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -48,6 +54,7 @@ proxy-groups: #!replace
   - name: 𝕏 X
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -55,6 +62,7 @@ proxy-groups: #!replace
   - name: Ⓜ️ Meta
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -62,6 +70,7 @@ proxy-groups: #!replace
   - name: 🎵 TikTok
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -69,6 +78,7 @@ proxy-groups: #!replace
   - name: 🎓学术网站
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -76,6 +86,7 @@ proxy-groups: #!replace
   - name: 🇨🇳 国内网站
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -83,6 +94,7 @@ proxy-groups: #!replace
   - name: 🌍 国外网站
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -90,6 +102,7 @@ proxy-groups: #!replace
   - name: 🛑 拦截广告
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -97,6 +110,7 @@ proxy-groups: #!replace
   - name: 🐟 漏网之鱼
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -104,6 +118,7 @@ proxy-groups: #!replace
   - name: 🎮 Steam 登录/下载
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -111,6 +126,7 @@ proxy-groups: #!replace
   - name: 🎮 Steam 商店/社区
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
@@ -118,6 +134,7 @@ proxy-groups: #!replace
   - name: 🌩️ Cloudflare
     type: select
     include-all: true
+    filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
       - 🔰 选择节点
       - DIRECT
