@@ -2,7 +2,7 @@ name: 'iKuuu｜全局节点池＋各分组独立选择'
 desc: |-
   全局只有一个总的「🚀 选择节点」节点池。
   每个业务分组固定三个选项：选择节点、DIRECT、REJECT。
-  每个业务组的「选择节点」都是独立 select，并通过 include-all: true 自动读取 iKuuu 订阅节点。
+  每个业务组的「选择节点」都是独立 select，并通过 include-all: true 自动读取 iKuuu 订阅节点；子选择组隐藏于顶层，仅作为业务组内部入口。
 proxy-groups: #!replace
   - name: 🚀 选择节点
     type: select
@@ -20,6 +20,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点​
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -34,6 +35,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‌
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -48,6 +50,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‍
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -62,6 +65,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点⁠
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -76,6 +80,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点﻿
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -90,6 +95,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点​‌
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -104,6 +110,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点​‍
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -118,6 +125,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点​⁠
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -132,6 +140,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点​﻿
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -146,6 +155,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‌‍
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -160,6 +170,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‌⁠
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -174,6 +185,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‌﻿
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -188,6 +200,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‍⁠
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -202,6 +215,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‍﻿
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -216,6 +230,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点‍​
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
@@ -230,6 +245,7 @@ proxy-groups: #!replace
       - REJECT
   - name: 🔰 选择节点⁠​
     type: select
+    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
     proxies:
