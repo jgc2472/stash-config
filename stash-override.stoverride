@@ -1,131 +1,128 @@
-name: 'iKuuu｜图片同款｜总节点池＋每组三选项'
+name: 'iKuuu｜图片同款｜单一总节点池＋每组三选项'
 desc: |-
-  iKuuu 作为唯一节点来源。
-  只有一个总的「🔰 选择节点」节点池，所有业务分组的「🔰 选择节点」都引用这一总节点池。
+  iKuuu 作为唯一节点来源并自动刷新。
+  只有一个总的「🔰 选择节点」，其中显示全部 iKuuu 订阅节点。
   每个业务分组第一层只显示：🔰 选择节点、DIRECT、REJECT。
+  业务分组中的「🔰 选择节点」引用同一个总节点池，不在业务组内重复展开节点。
 proxy-groups: #!replace
   - name: 🔰 选择节点
     type: select
     use:
       - iKuuu
-    proxies:
-      - DIRECT
-      - REJECT
-  - name: 🚀 节点选择
-    type: select
-    proxies:
-      - 🔰 选择节点
-      - DIRECT
-      - REJECT
-  - name: ♻️ 自动选择
-    type: url-test
-    use:
-      - iKuuu
-    filter: '^(?!.*(?:免费|下载专用)).+$'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 1800
-    timeout: 5
-    tolerance: 80
-    lazy: true
-    proxies:
-      - DIRECT
-      - REJECT
+    filter: '^(?!DIRECT$|REJECT$).*$'
+
   - name: 🍎 Apple AI
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🤖 国外 AI
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🇬🇱 Google
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: ☁️ OneDrive
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 📟 Telegram
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 𝕏 X
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: Ⓜ️ Meta
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🎵 TikTok
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🎓学术网站
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🇨🇳 国内网站
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🌍 国外网站
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🛑 拦截广告
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🐟 漏网之鱼
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🎮 Steam 登录/下载
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🎮 Steam 商店/社区
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
   - name: 🌩️ Cloudflare
     type: select
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
+
 rules: #!prepend
   - DOMAIN,smoot.apple.com,🍎 Apple AI
   - DOMAIN,guzzoni.apple.com,🍎 Apple AI
