@@ -1,0 +1,55 @@
+# Clash Free：在现有策略组基础上，仅追加 3 个业务分组
+# 每个新增分组固定 3 个选项：🔰 选择节点 / DIRECT / REJECT
+# 不替换、不删除现有分组。
+
+proxy-groups: #!append
+  - name: 🍎 Apple AI
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+
+  - name: 📟 Telegram
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+
+  - name: 🎵 TikTok
+    type: select
+    proxies:
+      - 🔰 选择节点
+      - DIRECT
+      - REJECT
+
+rules: #!prepend
+  # Apple AI
+  - DOMAIN,smoot.apple.com,🍎 Apple AI
+  - DOMAIN,guzzoni.apple.com,🍎 Apple AI
+  - DOMAIN,apple-relay.apple.com,🍎 Apple AI
+  - DOMAIN,apple-relay.cloudflare.com,🍎 Apple AI
+  - DOMAIN,apple-relay.fastly-edge.com,🍎 Apple AI
+  - DOMAIN-SUFFIX,appleintelligence.com,🍎 Apple AI
+
+  # Telegram
+  - DOMAIN-SUFFIX,telegram.org,📟 Telegram
+  - DOMAIN-SUFFIX,t.me,📟 Telegram
+  - DOMAIN-SUFFIX,telegra.ph,📟 Telegram
+  - DOMAIN-SUFFIX,telegram.me,📟 Telegram
+  - DOMAIN-SUFFIX,tdesktop.com,📟 Telegram
+  - DOMAIN-SUFFIX,telesco.pe,📟 Telegram
+
+  # TikTok
+  - DOMAIN-KEYWORD,tiktokcdn,🎵 TikTok
+  - DOMAIN-SUFFIX,byteoversea.com,🎵 TikTok
+  - DOMAIN-SUFFIX,ibytedtos.com,🎵 TikTok
+  - DOMAIN-SUFFIX,ipstatp.com,🎵 TikTok
+  - DOMAIN-SUFFIX,muscdn.com,🎵 TikTok
+  - DOMAIN-SUFFIX,musical.ly,🎵 TikTok
+  - DOMAIN-SUFFIX,tik-tokapi.com,🎵 TikTok
+  - DOMAIN-SUFFIX,tiktok.com,🎵 TikTok
+  - DOMAIN-SUFFIX,tiktokcdn.com,🎵 TikTok
+  - DOMAIN-SUFFIX,tiktokv.com,🎵 TikTok
+  - DOMAIN-KEYWORD,ttvnw,🎵 TikTok
