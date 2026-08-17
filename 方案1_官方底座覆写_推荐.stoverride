@@ -1,27 +1,12 @@
-name: 'iKuuu｜我的分组｜方案1｜官方底座覆写'
+name: 'iKuuu｜我的分组｜方案1｜修正版'
 desc: |-
-  保留现有 Stash 官方/订阅底座，只替换节点来源、策略组和规则。
-  iKuuu 节点来自远程 Provider，节点名称不写死。
-proxy-providers:
-  ikuuu_sub:
-    type: http
-    url: https://b0q22.no-mad-sub.one/link/a2mRozJqbj1QihVy?clash=3&extend=1
-    path: ./providers/ikuuu_sub.yaml
-    interval: 21600
-    filter: '^(?!(?:🔰 选择节点|🌏 爱奇艺&哔哩哔哩|📺 动画疯|🎮 Steam 登录/下载|🎮 Steam 商店/社区|🌩️ Cloudflare|☁️ OneDrive|🎓学术网站|🇨🇳 国内网站|🛑 拦截广告|🐟 漏网之鱼)$).+'
-    headers:
-      User-Agent: Stash
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-proxies: #!replace
-  []
+  只重组现有 Stash 配置中的节点和策略组。
+  不重新创建 iKuuu Provider，不复制任何节点，不接管订阅刷新。
+  节点继续由现有 iKuuu/Clash 订阅负责更新。
 proxy-groups: #!replace
   - name: 🔰 选择节点
     type: select
-    use:
-      - ikuuu_sub
+    include-all: true
     proxies:
       - DIRECT
       - REJECT
@@ -121,7 +106,7 @@ proxy-groups: #!replace
       - 🔰 选择节点
       - DIRECT
       - REJECT
-rules: #!replace
+rules: #!prepend
   - DOMAIN,smoot.apple.com,🍎 Apple AI
   - DOMAIN,guzzoni.apple.com,🍎 Apple AI
   - DOMAIN-SUFFIX,appleintelligence.com,🍎 Apple AI
