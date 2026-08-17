@@ -1,26 +1,27 @@
 # Clash Free：在现有策略组基础上，仅追加 3 个业务分组
-# 每个新增分组固定 3 个选项：🔰 选择节点 / DIRECT / REJECT
+# 每个新增分组固定 3 个选项：🚀 节点选择 / DIRECT / REJECT
+# 「🚀 节点选择」直接引用 Clash Free 原有的全局节点池，可点开继续选择具体节点。
 # 不替换、不删除现有分组。
 
 proxy-groups: #!append
   - name: 🍎 Apple AI
     type: select
     proxies:
-      - 🔰 选择节点
+      - 🚀 节点选择
       - DIRECT
       - REJECT
 
   - name: 📟 Telegram
     type: select
     proxies:
-      - 🔰 选择节点
+      - 🚀 节点选择
       - DIRECT
       - REJECT
 
   - name: 🎵 TikTok
     type: select
     proxies:
-      - 🔰 选择节点
+      - 🚀 节点选择
       - DIRECT
       - REJECT
 
