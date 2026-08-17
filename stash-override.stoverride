@@ -2,255 +2,188 @@ name: 'iKuuu｜全局节点池＋各分组独立选择'
 desc: |-
   全局只有一个总的「🚀 选择节点」节点池。
   每个业务分组固定三个选项：选择节点、DIRECT、REJECT。
-  每个业务组的「选择节点」都是独立 select，并通过 include-all: true 自动读取 iKuuu 订阅节点；子选择组隐藏于顶层，仅作为业务组内部入口。
+  每个业务组的「选择节点」都是独立 select，并通过 include-all: true 自动读取 iKuuu 订阅节点。
 proxy-groups: #!replace
   - name: 🚀 选择节点
     type: select
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🍎 Apple AI
     type: select
     proxies:
-      - 🔰 选择节点​
+      - 🍎 Apple AI｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点​
+  - name: 🍎 Apple AI｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🤖 国外 AI
     type: select
     proxies:
-      - 🔰 选择节点‌
+      - 🤖 国外 AI｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‌
+  - name: 🤖 国外 AI｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🇬🇱 Google
     type: select
     proxies:
-      - 🔰 选择节点‍
+      - 🇬🇱 Google｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‍
+  - name: 🇬🇱 Google｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: ☁️ OneDrive
     type: select
     proxies:
-      - 🔰 选择节点⁠
+      - ☁️ OneDrive｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点⁠
+  - name: ☁️ OneDrive｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 📟 Telegram
     type: select
     proxies:
-      - 🔰 选择节点﻿
+      - 📟 Telegram｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点﻿
+  - name: 📟 Telegram｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 𝕏 X
     type: select
     proxies:
-      - 🔰 选择节点​‌
+      - 𝕏 X｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点​‌
+  - name: 𝕏 X｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: Ⓜ️ Meta
     type: select
     proxies:
-      - 🔰 选择节点​‍
+      - Ⓜ️ Meta｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点​‍
+  - name: Ⓜ️ Meta｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🎵 TikTok
     type: select
     proxies:
-      - 🔰 选择节点​⁠
+      - 🎵 TikTok｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点​⁠
+  - name: 🎵 TikTok｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🎓学术网站
     type: select
     proxies:
-      - 🔰 选择节点​﻿
+      - 🎓学术网站｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点​﻿
+  - name: 🎓学术网站｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🇨🇳 国内网站
     type: select
     proxies:
-      - 🔰 选择节点‌‍
+      - 🇨🇳 国内网站｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‌‍
+  - name: 🇨🇳 国内网站｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🌍 国外网站
     type: select
     proxies:
-      - 🔰 选择节点‌⁠
+      - 🌍 国外网站｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‌⁠
+  - name: 🌍 国外网站｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🛑 拦截广告
     type: select
     proxies:
-      - 🔰 选择节点‌﻿
+      - 🛑 拦截广告｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‌﻿
+  - name: 🛑 拦截广告｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🔰 选择节点‍⁠
+      - 🐟 漏网之鱼｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‍⁠
+  - name: 🐟 漏网之鱼｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🎮 Steam 登录/下载
     type: select
     proxies:
-      - 🔰 选择节点‍﻿
+      - 🎮 Steam 登录/下载｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‍﻿
+  - name: 🎮 Steam 登录/下载｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🎮 Steam 商店/社区
     type: select
     proxies:
-      - 🔰 选择节点‍​
+      - 🎮 Steam 商店/社区｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点‍​
+  - name: 🎮 Steam 商店/社区｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🌩️ Cloudflare
     type: select
     proxies:
-      - 🔰 选择节点⁠​
+      - 🌩️ Cloudflare｜选择节点
       - DIRECT
       - REJECT
-  - name: 🔰 选择节点⁠​
+  - name: 🌩️ Cloudflare｜选择节点
     type: select
-    hidden: true
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
 rules: #!prepend
   - DOMAIN,smoot.apple.com,🍎 Apple AI
