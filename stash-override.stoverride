@@ -1,17 +1,14 @@
 name: 'iKuuu｜总节点池＋每组独立选择节点'
 desc: |-
   iKuuu 作为唯一节点来源并自动刷新。
-  顶部保留一个总的「🔰 选择节点」节点池。
-  每个业务分组只显示三个选项：该组「🔰 选择节点」、DIRECT、REJECT。
-  每个业务组的「🔰 选择节点」都是独立策略组，并使用 include-all: true 引入全部 iKuuu 节点。
+  顶部保留一个总的「🔰 选择节点」节点池，只显示全部 iKuuu 订阅节点。
+  每个业务分组只显示三个选项：该组「选择节点」、DIRECT、REJECT。
+  每个业务组的「选择节点」都是独立策略组，并使用 include-all: true 引入全部 iKuuu 节点。
 proxy-groups: #!replace
   - name: 🔰 选择节点
     type: select
     include-all: true
     filter: '^(?!DIRECT$|REJECT$).*$'
-    proxies:
-      - DIRECT
-      - REJECT
 
   - name: 🚀 节点选择
     type: select
