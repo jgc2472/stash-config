@@ -2,139 +2,122 @@ name: 'iKuuu｜我的分组｜每组独立选节点'
 desc: |-
   基于现有 Stash iKuuu Provider 重组策略组。
   不复制节点，不重新创建订阅，不接管 iKuuu 刷新。
-  每个业务策略组直接独立使用现有 iKuuu Provider 的全部节点。
+  每个策略组直接包含当前配置中的全部节点，并保留 DIRECT/REJECT。
 proxy-groups: #!replace
   - name: 🔰 选择节点
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - DIRECT
       - REJECT
   - name: 🍎 Apple AI
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🤖 国外 AI
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🇬🇱 Google
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: ☁️ OneDrive
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 📟 Telegram
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 𝕏 X
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: Ⓜ️ Meta
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🎵 TikTok
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🎓学术网站
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🇨🇳 国内网站
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🌍 国外网站
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🛑 拦截广告
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🐟 漏网之鱼
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🎮 Steam 登录/下载
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🎮 Steam 商店/社区
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
       - REJECT
   - name: 🌩️ Cloudflare
     type: select
-    use:
-      - iKuuu
+    include-all: true
     proxies:
       - 🔰 选择节点
       - DIRECT
